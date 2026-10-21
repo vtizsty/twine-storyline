@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>演示_06_交接还是救人</title></head><body>
+<tw-storydata name="演示_06_交接还是救人" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="5C0294B9-11E4-573F-B4E8-3BDB39A4CA11" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $choice to "none")
+你答应阿青，三点前把一个箱子送到码头交给他。
+“我一定会准时赶到。”你这样说过。
+
+[[出发-&gt;路上]]</tw-passagedata><tw-passagedata pid="2" name="路上" tags="" position="300,250" size="100,100">离三点只剩十分钟。路边有个人倒在地上，周围没有别人。
+停下来救人，就一定赶不上交接；继续赶路，那个人可能没人管。
+
+[[停下来救人-&gt;救人]]
+[[继续赶去码头-&gt;赶路]]</tw-passagedata><tw-passagedata pid="3" name="救人" tags="" position="500,125" size="100,100">(set: $choice to "help")
+你扶他坐起，喊来了附近的店主。
+等你赶到码头，已经三点二十。
+
+[[走向阿青-&gt;码头]]</tw-passagedata><tw-passagedata pid="4" name="赶路" tags="" position="500,375" size="100,100">(set: $choice to "deliver")
+你从他身边跑了过去。
+三点整，你站在了码头上。
+
+[[走向阿青-&gt;码头]]</tw-passagedata><tw-passagedata pid="5" name="码头" tags="" position="700,250" size="100,100">阿青站在老地方等你。
+
+(if: $choice is "help")[他看了看表，没有接你手里的箱子。“下次交接，我找别人。”]
+(else-if: $choice is "deliver")[他接过箱子，点点头：“你一向准时。”你回头望了一眼来时的路。]
+(else:)[尚未记录有效的选择，请从“开始”运行。]
+
+[[第二天-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">(if: $choice is "help")[第二天，阿青把下一次交接交给了别人。你听说路边那个人已经醒了。]
+(else-if: $choice is "deliver")[第二天，阿青又找你交接。没有人再提起路边那个人。]
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+</body></html>

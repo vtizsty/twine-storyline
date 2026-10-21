@@ -1,0 +1,312 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>维修站全部演示故事</title></head><body>
+<tw-storydata name="维修站_00_空白起点" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="A691FD9F-87FB-52B2-8D37-66B0696ABD5E" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">（写处境：停电、只能供一条线路）
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">（写限制：只能选一处，各自的代价）
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">（写结果）
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">（写结果）
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">（按记录显示不同的话）
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">（收束）
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="维修站_01_完整版" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="8F4DE56C-9136-566E-9F06-BD85481AF1E6" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上只剩一个可用插口。
+供电医务室，伤员能及时得到处理，但求援信号无法发出。
+供电信号塔，能发出求援，但医务室只能依靠手电继续工作，处理会更慢。
+救援能否及时赶到仍不确定。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else-if: $power is "radio")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="维修站_02_错误_跑不通" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="39AC3CCD-CBC5-5C82-BC71-3EB4B8E7285C" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上只剩一个可用插口。
+供电医务室，伤员能及时得到处理，但求援信号无法发出。
+供电信号塔，能发出求援，但医务室只能依靠手电继续工作，处理会更慢。
+救援能否及时赶到仍不确定。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else-if: $power is "radio")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="维修站_03_错误_看不懂" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="C02CAC59-D34E-5EFB-918B-3ADA6B579997" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上有两个开关。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else-if: $power is "radio")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="维修站_04_错误_对不上" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="C2E0DC81-57DD-59F7-A7F8-68B3F7B5ABFF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上只剩一个可用插口。
+供电医务室，伤员能及时得到处理，但求援信号无法发出。
+供电信号塔，能发出求援，但医务室只能依靠手电继续工作，处理会更慢。
+救援能否及时赶到仍不确定。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else-if: $power is "radio")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="维修站_05_错误_经历被清空" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="7E3D9263-DE13-52E0-83F8-3FAB8D722446" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上只剩一个可用插口。
+供电医务室，伤员能及时得到处理，但求援信号无法发出。
+供电信号塔，能发出求援，但医务室只能依靠手电继续工作，处理会更慢。
+救援能否及时赶到仍不确定。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">(set: $power to "none")
+你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else-if: $power is "radio")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="演示_06_交接还是救人" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="5C0294B9-11E4-573F-B4E8-3BDB39A4CA11" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $choice to "none")
+你答应阿青，三点前把一个箱子送到码头交给他。
+“我一定会准时赶到。”你这样说过。
+
+[[出发-&gt;路上]]</tw-passagedata><tw-passagedata pid="2" name="路上" tags="" position="300,250" size="100,100">离三点只剩十分钟。路边有个人倒在地上，周围没有别人。
+停下来救人，就一定赶不上交接；继续赶路，那个人可能没人管。
+
+[[停下来救人-&gt;救人]]
+[[继续赶去码头-&gt;赶路]]</tw-passagedata><tw-passagedata pid="3" name="救人" tags="" position="500,125" size="100,100">(set: $choice to "help")
+你扶他坐起，喊来了附近的店主。
+等你赶到码头，已经三点二十。
+
+[[走向阿青-&gt;码头]]</tw-passagedata><tw-passagedata pid="4" name="赶路" tags="" position="500,375" size="100,100">(set: $choice to "deliver")
+你从他身边跑了过去。
+三点整，你站在了码头上。
+
+[[走向阿青-&gt;码头]]</tw-passagedata><tw-passagedata pid="5" name="码头" tags="" position="700,250" size="100,100">阿青站在老地方等你。
+
+(if: $choice is "help")[他看了看表，没有接你手里的箱子。“下次交接，我找别人。”]
+(else-if: $choice is "deliver")[他接过箱子，点点头：“你一向准时。”你回头望了一眼来时的路。]
+(else:)[尚未记录有效的选择，请从“开始”运行。]
+
+[[第二天-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">(if: $choice is "help")[第二天，阿青把下一次交接交给了别人。你听说路边那个人已经醒了。]
+(else-if: $choice is "deliver")[第二天，阿青又找你交接。没有人再提起路边那个人。]
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="演示_07_延迟回应" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="2F00D2BB-3E5E-576C-A31E-97BCDB3AFE80" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $trust to 0)
+你是维修站的新人。这一夜，值班员老周会看着你做三件小事。
+
+[[第一件事-&gt;第一件]]</tw-passagedata><tw-passagedata pid="2" name="第一件" tags="" position="300,250" size="100,100">配电板旁边有一张手写的操作提醒，字迹很潦草。
+
+[[停下来仔细读完-&gt;第一件读]]
+[[直接动手-&gt;第二件]]</tw-passagedata><tw-passagedata pid="3" name="第一件读" tags="" position="400,100" size="100,100">(set: $trust to it + 1)
+你读完了提醒，照着做了一遍。老周没说话。
+
+[[下一件事-&gt;第二件]]</tw-passagedata><tw-passagedata pid="4" name="第二件" tags="" position="500,250" size="100,100">仓库里少了一卷电线，记录本上没人签字。
+
+[[如实记下“缺一卷”-&gt;第二件记]]
+[[不写，免得麻烦-&gt;第三件]]</tw-passagedata><tw-passagedata pid="5" name="第二件记" tags="" position="600,100" size="100,100">(set: $trust to it + 1)
+你在记录本上写下“缺一卷电线”。老周看了一眼。
+
+[[下一件事-&gt;第三件]]</tw-passagedata><tw-passagedata pid="6" name="第三件" tags="" position="700,250" size="100,100">凌晨两点，信号塔的灯闪了一下。可能没事，也可能要上去看。
+
+[[爬上去看一眼-&gt;第三件看]]
+[[等天亮再说-&gt;天亮]]</tw-passagedata><tw-passagedata pid="7" name="第三件看" tags="" position="800,100" size="100,100">(set: $trust to it + 1)
+你爬上信号塔，拧紧了一个松动的接头。
+
+[[等天亮-&gt;天亮]]</tw-passagedata><tw-passagedata pid="8" name="天亮" tags="" position="900,250" size="100,100">天亮了，老周把交接本递给你。
+
+(if: $trust &gt;= 2)[“下周夜班，你一个人能行。”]
+(else:)[“下周夜班，我还是陪你一起。”]
+
+（这一轮你做了 $trust 件老周看在眼里的事。）
+
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="演示_08_支线的开启与错过" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="11152708-9F39-508D-9874-BD9F0626450A" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $met to false)(set: $seals to 0)(set: $east to false)(set: $west to false)(set: $boss to false)
+你来到一座山寺。
+
+[[院子]]</tw-passagedata><tw-passagedata pid="2" name="院子" tags="" position="300,250" size="100,100">院子里很安静。
+
+(if: $seals &gt;= 2)[后山的女孩不见了，只在石头上留下一句谢谢。]
+(else-if: $boss)[大殿的门已经开了。后山那边，再也没有人在等你。]
+(else-if: $met)[后山的女孩还在等你揭符。（已揭 $seals 张，共 2 张）]
+
+[[去后山-&gt;后山]]
+(if: $met and not $east and not $boss)[[[去东塔揭符-&gt;东塔]]]
+(if: $met and not $west and not $boss)[[[去西塔揭符-&gt;西塔]]]
+(if: not $boss)[[[去大殿打首领-&gt;大殿]]]
+(if: $boss)[(link: "重新开始")[(restart:)]]</tw-passagedata><tw-passagedata pid="3" name="后山" tags="" position="500,100" size="100,100">(if: $seals &gt;= 2)[石头上刻着两个字：谢谢。]
+(else-if: $boss)[后山空无一人。]
+(else-if: not $met)[(set: $met to true)一个女孩坐在石头上：“塔上贴着封住我的符，我自己揭不下来。”]
+(else:)[女孩还坐在石头上。]
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="4" name="东塔" tags="" position="500,250" size="100,100">(set: $east to true)(set: $seals to it + 1)你揭下了东塔上的紫色符纸。
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="5" name="西塔" tags="" position="500,400" size="100,100">(set: $west to true)(set: $seals to it + 1)你揭下了西塔上的紫色符纸。
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="6" name="大殿" tags="" position="700,250" size="100,100">(set: $boss to true)
+你打败了大殿里的首领。这一段路走完了。
+
+[[回院子-&gt;院子]]
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="演示_09_玩家看过没有" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="B970ED99-36C6-5A89-85F6-3F55F1B81DD6" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $power to "none")
+暴雨切断了维修站的主电源。备用电池只能维持一条线路到天亮。
+医务室需要灯光处理伤员；信号塔需要电力向外发送求援。
+你负责接通其中一条线路。
+
+[[查看配电板-&gt;选择]]
+[[先翻一下交接档案-&gt;交接档案]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">配电板上只剩一个可用插口。
+供电医务室，伤员能及时得到处理，但求援信号无法发出。
+供电信号塔，能发出求援，但医务室只能依靠手电继续工作，处理会更慢。
+救援能否及时赶到仍不确定。
+
+[[把电力接到医务室-&gt;医务室]]
+[[把电力接到信号塔-&gt;信号塔]]</tw-passagedata><tw-passagedata pid="3" name="医务室" tags="" position="500,125" size="100,100">(set: $power to "clinic")
+医务室的灯亮了。护士把手电放下，重新整理伤口处理台。
+屋顶上的信号灯仍然黑着。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="4" name="信号塔" tags="" position="500,375" size="100,100">(set: $power to "radio")
+信号塔开始重复发送求援信息。你还没有收到回音。
+医务室里，有人把手电举得更高了一点。
+
+[[回到值班台-&gt;回应]]</tw-passagedata><tw-passagedata pid="5" name="回应" tags="" position="700,250" size="100,100">你回到同一个值班台，值班员抬头看你。
+
+(if: $power is "clinic")[“医务室能工作了。今晚的求援，我们得另想办法。”]
+(else-if: $power is "radio")[“求援已经发出。接下来，请去医务室帮忙举灯。”]
+(else:)[尚未记录有效的供电选择，请从“开始”运行并完成选择。]
+
+(if: (history:) contains "交接档案")[你想起档案里那句话：去年的求援，第二天中午才到。]
+
+[[写下交接记录-&gt;结束]]</tw-passagedata><tw-passagedata pid="6" name="结束" tags="" position="900,250" size="100,100">天还没亮。你在交接本上记下供电决定，以及仍没有解决的问题。
+这次决定没有让所有问题消失，但有人会带着它的后果继续工作。
+
+(link: "重新开始，试另一条路线")[(restart:)]</tw-passagedata><tw-passagedata pid="7" name="交接档案" tags="" position="200,425" size="100,100">档案最后一页写着：去年冬天也停过一次电。那次电给了信号塔，求援第二天中午才到。
+
+[[合上档案，去配电板-&gt;选择]]</tw-passagedata></tw-storydata>
+<tw-storydata name="备用_10_最后一份外卖" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="B6179733-DC42-5393-A7C8-42A0F22A1B04" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $food to "none")
+晚上十一点，宿舍只剩一份外卖。你和室友都没吃饭。
+明早你有考试；室友今晚要通宵赶作业。外卖只够一个人。
+
+[[打开外卖-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">饭还是热的。室友看了一眼，又低头敲键盘。
+
+[[自己吃]]
+[[让给室友]]</tw-passagedata><tw-passagedata pid="3" name="自己吃" tags="" position="500,125" size="100,100">(set: $food to "me")
+你吃完就睡了。半夜醒来，听见室友的肚子叫了一声。
+
+[[第二天早上]]</tw-passagedata><tw-passagedata pid="4" name="让给室友" tags="" position="500,375" size="100,100">(set: $food to "roommate")
+你把外卖推到他桌上。他说了声谢谢。你饿着躺下，很久才睡着。
+
+[[第二天早上]]</tw-passagedata><tw-passagedata pid="5" name="第二天早上" tags="" position="700,250" size="100,100">早上七点，室友还在电脑前。
+
+(if: $food is "me")[他抬头说：“早。”]
+(else:)[他抬头说：“早啊。”]
+
+[[去考试-&gt;结尾]]</tw-passagedata><tw-passagedata pid="6" name="结尾" tags="" position="900,250" size="100,100">你出门去考试。
+
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+<tw-storydata name="备用_11_失联的组员" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="D6458F0A-B4D4-5BAE-A50D-CD04017F78CC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $group to "none")
+小组作业今晚十二点截止，负责最后一部分的组员阿凯突然联系不上。
+
+[[怎么办-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">还剩两个小时。
+
+[[替他写完-&gt;替他写]]
+[[报告老师-&gt;报告]]</tw-passagedata><tw-passagedata pid="3" name="替他写" tags="" position="500,125" size="100,100">(set: $group to "cover")
+你熬到十一点五十，把最后一部分补完交了上去。这时你才发现，提交名单上阿凯的名字也在，分数大家一样。
+
+[[第二天]]</tw-passagedata><tw-passagedata pid="4" name="报告" tags="" position="500,375" size="100,100">(set: $group to "report")
+你给老师发了邮件，说明阿凯失联。作业迟交了，全组扣分。
+
+[[第二天-&gt;第二天上课]]</tw-passagedata><tw-passagedata pid="5" name="第二天" tags="" position="700,250" size="100,100">上课前，阿凯回了消息：“昨晚手机坏了，对不起。”
+
+(if: $group is "cover")[“谢谢你替我写完。我欠你一次。”]
+(else-if: $group is "report")[“我看到老师的邮件了……我知道，是我的问题。”]
+
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+</body></html>

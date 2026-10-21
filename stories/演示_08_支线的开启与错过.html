@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>演示_08_支线的开启与错过</title></head><body>
+<tw-storydata name="演示_08_支线的开启与错过" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="11152708-9F39-508D-9874-BD9F0626450A" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $met to false)(set: $seals to 0)(set: $east to false)(set: $west to false)(set: $boss to false)
+你来到一座山寺。
+
+[[院子]]</tw-passagedata><tw-passagedata pid="2" name="院子" tags="" position="300,250" size="100,100">院子里很安静。
+
+(if: $seals &gt;= 2)[后山的女孩不见了，只在石头上留下一句谢谢。]
+(else-if: $boss)[大殿的门已经开了。后山那边，再也没有人在等你。]
+(else-if: $met)[后山的女孩还在等你揭符。（已揭 $seals 张，共 2 张）]
+
+[[去后山-&gt;后山]]
+(if: $met and not $east and not $boss)[[[去东塔揭符-&gt;东塔]]]
+(if: $met and not $west and not $boss)[[[去西塔揭符-&gt;西塔]]]
+(if: not $boss)[[[去大殿打首领-&gt;大殿]]]
+(if: $boss)[(link: "重新开始")[(restart:)]]</tw-passagedata><tw-passagedata pid="3" name="后山" tags="" position="500,100" size="100,100">(if: $seals &gt;= 2)[石头上刻着两个字：谢谢。]
+(else-if: $boss)[后山空无一人。]
+(else-if: not $met)[(set: $met to true)一个女孩坐在石头上：“塔上贴着封住我的符，我自己揭不下来。”]
+(else:)[女孩还坐在石头上。]
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="4" name="东塔" tags="" position="500,250" size="100,100">(set: $east to true)(set: $seals to it + 1)你揭下了东塔上的紫色符纸。
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="5" name="西塔" tags="" position="500,400" size="100,100">(set: $west to true)(set: $seals to it + 1)你揭下了西塔上的紫色符纸。
+
+[[回院子-&gt;院子]]</tw-passagedata><tw-passagedata pid="6" name="大殿" tags="" position="700,250" size="100,100">(set: $boss to true)
+你打败了大殿里的首领。这一段路走完了。
+
+[[回院子-&gt;院子]]
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+</body></html>

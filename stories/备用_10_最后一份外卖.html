@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>备用_10_最后一份外卖</title></head><body>
+<tw-storydata name="备用_10_最后一份外卖" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.8" ifid="B6179733-DC42-5393-A7C8-42A0F22A1B04" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="开始" tags="" position="100,250" size="100,100">(set: $food to "none")
+晚上十一点，宿舍只剩一份外卖。你和室友都没吃饭。
+明早你有考试；室友今晚要通宵赶作业。外卖只够一个人。
+
+[[打开外卖-&gt;选择]]</tw-passagedata><tw-passagedata pid="2" name="选择" tags="" position="300,250" size="100,100">饭还是热的。室友看了一眼，又低头敲键盘。
+
+[[自己吃]]
+[[让给室友]]</tw-passagedata><tw-passagedata pid="3" name="自己吃" tags="" position="500,125" size="100,100">(set: $food to "me")
+你吃完就睡了。半夜醒来，听见室友的肚子叫了一声。
+
+[[第二天早上]]</tw-passagedata><tw-passagedata pid="4" name="让给室友" tags="" position="500,375" size="100,100">(set: $food to "roommate")
+你把外卖推到他桌上。他说了声谢谢。你饿着躺下，很久才睡着。
+
+[[第二天早上]]</tw-passagedata><tw-passagedata pid="5" name="第二天早上" tags="" position="700,250" size="100,100">早上七点，室友还在电脑前。
+
+(if: $food is "me")[他抬头说：“早。”]
+(else:)[他抬头说：“早啊。”]
+
+[[去考试-&gt;结尾]]</tw-passagedata><tw-passagedata pid="6" name="结尾" tags="" position="900,250" size="100,100">你出门去考试。
+
+(link: "重新开始")[(restart:)]</tw-passagedata></tw-storydata>
+</body></html>

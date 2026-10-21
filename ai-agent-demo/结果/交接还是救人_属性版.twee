@@ -1,0 +1,71 @@
+:: StoryTitle
+交接还是救人_属性版
+
+:: StoryData
+{
+  "ifid": "03407BDC-7172-496C-8BA5-50BECA04A9D5",
+  "format": "Harlowe",
+  "format-version": "3.3.8",
+  "start": "开始"
+}
+
+:: 初始化 [startup] {"position":"100,425","size":"100,100"}
+(set: $aqing to (dm: "trust", 2, "mood", "平静"))
+(set: $items to (a: "箱子"))
+(set: $log to (a:))
+(set: $choice to "none")
+
+:: 开始 {"position":"100,250","size":"100,100"}
+你答应阿青，三点前把一个箱子送到码头交给他。
+“我一定会准时赶到。”你这样说过。
+
+[[出发->路上]]
+
+:: 路上 {"position":"300,250","size":"100,100"}
+离三点只剩十分钟。路边有个人倒在地上，周围没有别人。
+停下来救人，就一定赶不上交接；继续赶路，那个人可能没人管。
+
+[[停下来救人->救人]]
+[[继续赶去码头->赶路]]
+
+:: 救人 {"position":"500,125","size":"100,100"}
+(set: $choice to "help")
+(set: $log to it + (a: "停下来扶起了路边的人"))
+(set: $items to it + (a: "店主的名片"))
+你扶他坐起，喊来了附近的店主。店主把一张名片塞进你手里：“回头我请你吃饭。”
+等你赶到码头，已经三点二十。
+
+[[走向阿青->码头]]
+
+:: 赶路 {"position":"500,375","size":"100,100"}
+(set: $choice to "deliver")
+(set: $log to it + (a: "从倒地的人身边跑了过去"))
+你从他身边跑了过去。
+三点整，你站在了码头上。
+
+[[走向阿青->码头]]
+
+:: 码头 {"position":"700,250","size":"100,100"}
+阿青站在老地方等你。
+
+(if: $choice is "help")[(set: $aqing's trust to it - 2)(set: $aqing's mood to "失望")(set: $log to it + (a: "交接迟到了二十分钟"))他看了看表，没有接你手里的箱子。“下次交接，我找别人。”]
+(else-if: $choice is "deliver")[(set: $aqing's trust to it + 1)(set: $aqing's mood to "满意")(set: $items to it - (a: "箱子"))(set: $log to it + (a: "三点整把箱子交给了阿青"))他接过箱子，点点头：“你一向准时。”你回头望了一眼来时的路。]
+(else:)[尚未记录有效的选择，请从“开始”运行。]
+
+[[第二天->结束]]
+
+:: 结束 {"position":"900,250","size":"100,100"}
+{
+(if: $aqing's trust >= 2)[第二天，阿青又找你交接。]
+(else:)[第二天，阿青把下一次交接交给了别人。]
+(if: $items contains "箱子")[<br>那个箱子还放在你的桌上。]
+(if: $items contains "店主的名片")[<br>你翻出那张名片，背面写着：“那个人醒了，谢谢你。”]
+}
+
+阿青现在对你的感觉：(print: $aqing's mood)。
+
+这一夜你做过的事：
+(for: each _e, ...$log)[
+· _e]
+
+(link: "重新开始，试另一条路线")[(restart:)]
